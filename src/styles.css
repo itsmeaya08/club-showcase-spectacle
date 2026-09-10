@@ -760,11 +760,124 @@
     margin-top:2rem;
   }
 
+  /* ---------- WHY ME ---------- */
+  .why-me-section{
+    position:relative;
+    z-index:1;
+    background:var(--void);
+    color:var(--bone);
+    padding:8rem 6vw 10rem;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  .why-me-quote-mark{
+    font-family:'Instrument Serif', serif;
+    font-size:clamp(5rem, 14vw, 10rem);
+    line-height:0.6;
+    color:var(--signal);
+    opacity:0.65;
+    margin-bottom:0.5rem;
+  }
+  .why-me-quote{
+    font-family:'Instrument Serif', serif;
+    font-style:italic;
+    font-size:clamp(1.9rem, 5.5vw, 3.6rem);
+    line-height:1.15;
+    color:var(--bone);
+    max-width:min(90vw, 900px);
+    letter-spacing:-0.01em;
+  }
+  .why-me-attribution{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:0.75rem;
+    letter-spacing:0.1em;
+    color:var(--graphite);
+    margin-top:1.2rem;
+    text-transform:uppercase;
+  }
+  .why-me-body{
+    width:100%;
+    max-width:980px;
+    margin-top:6rem;
+    text-align:left;
+  }
+  .why-me-title{
+    font-family:'Unbounded', sans-serif;
+    font-weight:900;
+    font-size:clamp(2rem, 5vw, 3.2rem);
+    letter-spacing:-0.01em;
+    color:var(--bone);
+  }
+  .why-me-lead{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:clamp(1rem, 2vw, 1.15rem);
+    line-height:1.6;
+    color:#b9b7b2;
+    max-width:48rem;
+    margin-top:1.2rem;
+  }
+  .why-me-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1.5rem;
+    margin-top:3.5rem;
+  }
+  .why-me-card{
+    background:rgba(242,240,235,0.04);
+    border:1px solid rgba(242,240,235,0.10);
+    border-radius:14px;
+    padding:1.8rem;
+    transition:transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  }
+  .why-me-card:hover{
+    transform:translateY(-5px);
+    background:rgba(242,240,235,0.07);
+    border-color:rgba(242,240,235,0.18);
+  }
+  .why-me-card-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    color:var(--signal);
+    margin-bottom:1rem;
+  }
+  .why-me-card h4{
+    font-family:'Unbounded', sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    color:var(--bone);
+    margin-bottom:0.7rem;
+  }
+  .why-me-card p{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:0.9rem;
+    line-height:1.65;
+    color:#b9b7b2;
+  }
+  .why-me-closer{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:clamp(1rem, 2vw, 1.15rem);
+    line-height:1.6;
+    color:var(--bone);
+    text-align:center;
+    margin-top:4.5rem;
+    max-width:48rem;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
   @media (max-width:720px){
     .who-hero-block{ padding:3.4rem 6vw 2rem; }
     .who-layout{ flex-direction:column; align-items:flex-start; gap:3.5rem; min-height:auto; }
     .who-photo-wrap{ width:60vw; margin:0 auto; }
     .scroll-hint{ display:none; }
     .qmark-fact{ width:150px; font-size:0.68rem; }
+    .why-me-section{ padding:5rem 6vw 6rem; }
+    .why-me-grid{ grid-template-columns:1fr; gap:1.2rem; }
+    .why-me-body{ margin-top:4rem; }
+    .why-me-closer{ margin-top:3rem; }
   }
 

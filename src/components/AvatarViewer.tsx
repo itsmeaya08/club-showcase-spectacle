@@ -13,8 +13,8 @@ function AvatarModel() {
     const box = new THREE.Box3().setFromObject(scene);
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
-    const maxDim = Math.max(size.x, size.y, size.z) || 1;
-    const scale = 3.9 / maxDim;
+    const height = size.y || 1;
+    const scale = 3.2 / height;
     scene.scale.setScalar(scale);
     scene.position.set(
       -center.x * scale,

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
@@ -69,6 +69,7 @@ const TESTIMONIALS: Testimonial[] = [
 ];
 
 function Works() {
+  const navigate = useNavigate();
   const [entered, setEntered] = useState(false);
 
   useEffect(() => {
@@ -94,6 +95,14 @@ function Works() {
       <div className="works-testimonial-wrap">
         <AnimatedTestimonials testimonials={TESTIMONIALS} autoplay />
       </div>
+
+      <button
+        className="conclusion-btn"
+        onClick={() => navigate({ to: "/conclusion" })}
+      >
+        <span className="word">CONCLUSION</span>
+        <span className="arrow">&rarr;</span>
+      </button>
     </section>
   );
 }

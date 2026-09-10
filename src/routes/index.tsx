@@ -367,7 +367,7 @@ function Index() {
       card.style.left = `${rect.left}px`;
       card.style.width = `${rect.width}px`;
       card.style.height = `${rect.height}px`;
-      card.style.borderRadius = "50%";
+      card.style.borderRadius = "14px";
       overlay.classList.add("active");
 
       requestAnimationFrame(() => {
@@ -394,7 +394,7 @@ function Index() {
     card.style.left = `${rect.left}px`;
     card.style.width = `${rect.width}px`;
     card.style.height = `${rect.height}px`;
-    card.style.borderRadius = "50%";
+    card.style.borderRadius = "14px";
     setTimeout(() => {
       activeFavIcon.current = null;
       setActiveFav(null);

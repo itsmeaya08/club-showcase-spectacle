@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { ClientOnly } from "@tanstack/react-router";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
+
+const AvatarViewer = lazy(() => import("@/components/AvatarViewer"));
 
 import ayaPhoto from "@/assets/aya.webp.asset.json";
 import bookImg from "@/assets/book.webp.asset.json";
@@ -548,53 +551,15 @@ function Index() {
             </h2>
             <p className="why-me-attribution">— Wayne Gretzky</p>
 
-            <div className="why-me-body">
-              <h3 className="why-me-title">WHY ME?</h3>
-              <p className="why-me-lead">
-                This is the part where I tell you why I belong in your club.
-              </p>
-
-              <div className="why-me-grid">
-                <div className="why-me-card">
-                  <div className="why-me-card-num">01</div>
-                  <h4>Diverse perspective</h4>
-                  <p>
-                    Kazakh roots, Texas upbringing, and a global music and film
-                    diet mean I approach conversations from more than one angle.
-                  </p>
-                </div>
-                <div className="why-me-card">
-                  <div className="why-me-card-num">02</div>
-                  <h4>Academic drive</h4>
-                  <p>
-                    I’m a Business Administration major at Texas A&M, class of
-                    2030, hoping to specialize in Finance. I take the classroom
-                    seriously and the work ethic even more so.
-                  </p>
-                </div>
-                <div className="why-me-card">
-                  <div className="why-me-card-num">03</div>
-                  <h4>Curious builder</h4>
-                  <p>
-                    I like figuring things out — whether it’s a new idea, a
-                    team project, or how to make something look and feel better
-                    than it did yesterday.
-                  </p>
-                </div>
-                <div className="why-me-card">
-                  <div className="why-me-card-num">04</div>
-                  <h4>People-first</h4>
-                  <p>
-                    Clubs are made of people. I show up, listen, contribute,
-                    and make the room better by being in it.
-                  </p>
-                </div>
+            <div className="why-me-stage">
+              <div className="avatar-stage">
+                <ClientOnly fallback={<div className="avatar-loading">loading avatar…</div>}>
+                  <Suspense fallback={<div className="avatar-loading">loading avatar…</div>}>
+                    <AvatarViewer />
+                  </Suspense>
+                </ClientOnly>
               </div>
-
-              <p className="why-me-closer">
-                I built this site to show you who I am before we ever shake
-                hands. Let’s make something great together.
-              </p>
+              <div className="why-me-textbox" />
             </div>
           </div>
         </section>

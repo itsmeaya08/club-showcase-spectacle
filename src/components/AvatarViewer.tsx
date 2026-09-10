@@ -14,11 +14,11 @@ function AvatarModel() {
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
     const maxDim = Math.max(size.x, size.y, size.z) || 1;
-    const scale = 2.6 / maxDim;
+    const scale = 3.9 / maxDim;
     scene.scale.setScalar(scale);
     scene.position.set(
       -center.x * scale,
-      -box.min.y * scale - 1.3,
+      -box.min.y * scale - 1.95,
       -center.z * scale,
     );
     scene.traverse((o) => {
@@ -47,7 +47,7 @@ export default function AvatarViewer() {
   return (
     <Canvas
       dpr={[1, 2]}
-      camera={{ position: [0, 0.2, 4.2], fov: 40 }}
+      camera={{ position: [0, 0.15, 4.6], fov: 42 }}
       gl={{ antialias: true, alpha: true }}
     >
       <ambientLight intensity={0.7} />

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { ClientOnly } from "@tanstack/react-router";
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 
@@ -175,6 +175,7 @@ const FAVORITES: Favorite[] = [
 ];
 
 function Index() {
+  const navigate = useNavigate();
   const [page, setPage] = useState<"hero" | "who">("hero");
   const [bootKey, setBootKey] = useState(0);
   const [bootDone, setBootDone] = useState(false);
@@ -561,6 +562,14 @@ function Index() {
               </div>
               <div className="why-me-textbox" />
             </div>
+
+            <button
+              className="view-works-btn"
+              onClick={() => navigate({ to: "/works" })}
+            >
+              <span className="word">VIEW MY WORKS</span>
+              <span className="arrow">&rarr;</span>
+            </button>
           </div>
         </section>
       )}

@@ -798,75 +798,44 @@
     margin-top:1.2rem;
     text-transform:uppercase;
   }
-  .why-me-body{
+  .why-me-stage{
     width:100%;
-    max-width:980px;
-    margin-top:6rem;
-    text-align:left;
-  }
-  .why-me-title{
-    font-family:'Unbounded', sans-serif;
-    font-weight:900;
-    font-size:clamp(2rem, 5vw, 3.2rem);
-    letter-spacing:-0.01em;
-    color:var(--bone);
-  }
-  .why-me-lead{
-    font-family:'IBM Plex Sans', sans-serif;
-    font-size:clamp(1rem, 2vw, 1.15rem);
-    line-height:1.6;
-    color:#b9b7b2;
-    max-width:48rem;
-    margin-top:1.2rem;
-  }
-  .why-me-grid{
+    max-width:1200px;
+    margin-top:5rem;
     display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:1.5rem;
-    margin-top:3.5rem;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    align-items:center;
+    gap:3rem;
   }
-  .why-me-card{
-    background:rgba(242,240,235,0.04);
-    border:1px solid rgba(242,240,235,0.10);
-    border-radius:14px;
-    padding:1.8rem;
-    transition:transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  .avatar-stage{
+    position:relative;
+    width:100%;
+    height:clamp(340px, 52vh, 560px);
   }
-  .why-me-card:hover{
-    transform:translateY(-5px);
-    background:rgba(242,240,235,0.07);
-    border-color:rgba(242,240,235,0.18);
-  }
-  .why-me-card-num{
+  .avatar-stage canvas{ display:block; width:100% !important; height:100% !important; }
+  .avatar-loading{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     font-family:'IBM Plex Mono', monospace;
     font-size:0.7rem;
-    letter-spacing:0.08em;
-    color:var(--signal);
-    margin-bottom:1rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--graphite);
   }
-  .why-me-card h4{
-    font-family:'Unbounded', sans-serif;
-    font-weight:700;
-    font-size:1.05rem;
-    color:var(--bone);
-    margin-bottom:0.7rem;
-  }
-  .why-me-card p{
+  .why-me-textbox{
+    min-height:clamp(240px, 34vh, 380px);
+    background:rgba(242,240,235,0.04);
+    border:1px solid rgba(242,240,235,0.10);
+    border-radius:16px;
+    padding:2rem;
+    text-align:left;
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:0.9rem;
-    line-height:1.65;
+    font-size:clamp(0.95rem, 1.6vw, 1.1rem);
+    line-height:1.7;
     color:#b9b7b2;
-  }
-  .why-me-closer{
-    font-family:'IBM Plex Sans', sans-serif;
-    font-size:clamp(1rem, 2vw, 1.15rem);
-    line-height:1.6;
-    color:var(--bone);
-    text-align:center;
-    margin-top:4.5rem;
-    max-width:48rem;
-    margin-left:auto;
-    margin-right:auto;
   }
 
   @media (max-width:720px){

@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
 export const Route = createFileRoute("/works")({
   head: () => ({
@@ -22,121 +23,61 @@ export const Route = createFileRoute("/works")({
   component: Works,
 });
 
-type Work = {
+type Testimonial = {
+  quote: string;
+  name: string;
+  designation: string;
   src: string;
-  title: string;
-  desc: string;
 };
 
-const WORKS: Work[] = [
+const TESTIMONIALS: Testimonial[] = [
   {
-    src: "https://images.pexels.com/photos/4990545/pexels-photo-4990545.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    title: "Data Analysis Project",
-    desc: "Collaborative data analysis examining market trends and business performance metrics.",
+    quote:
+      "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
+    name: "Sarah Chen",
+    designation: "Product Manager at TechFlow",
+    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    src: "https://images.pexels.com/photos/6476782/pexels-photo-6476782.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    title: "Business Presentation",
-    desc: "A comprehensive presentation on data-driven decision making in a corporate environment.",
+    quote:
+      "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
+    name: "Michael Rodriguez",
+    designation: "CTO at InnovateSphere",
+    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    src: "https://images.pexels.com/photos/8424452/pexels-photo-8424452.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    title: "Strategy Whiteboard",
-    desc: "Team strategy session mapping out productivity initiatives and growth plans.",
+    quote:
+      "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
+    name: "Emily Watson",
+    designation: "Operations Director at CloudScale",
+    src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    src: "https://images.pexels.com/photos/4872033/pexels-photo-4872033.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    title: "Team Collaboration",
-    desc: "Leading a productive office meeting with cross-functional team discussions.",
+    quote:
+      "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
+    name: "James Kim",
+    designation: "Engineering Lead at DataPro",
+    src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    src: "https://images.pexels.com/photos/7693148/pexels-photo-7693148.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    title: "Growth Strategy",
-    desc: "Presenting growth graphs and strategic insights for business development.",
-  },
-  {
-    src: "https://images.pexels.com/photos/8279051/pexels-photo-8279051.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    title: "Design Portfolio",
-    desc: "Analyzing and curating a creative design portfolio in a modern office setting.",
-  },
-  {
-    src: "https://images.pexels.com/photos/6593364/pexels-photo-6593364.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    title: "Creative Studio",
-    desc: "Engaging in digital creative work using modern tools in a studio environment.",
-  },
-  {
-    src: "https://images.pexels.com/photos/16313659/pexels-photo-16313659.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    title: "Photo Editing",
-    desc: "Professional photo editing and visual content creation for media projects.",
+    quote:
+      "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
+    name: "Lisa Thompson",
+    designation: "VP of Technology at FutureNet",
+    src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 
 function Works() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [zoomActive, setZoomActive] = useState(false);
-  const [activeWork, setActiveWork] = useState<Work | null>(null);
-  const overlayRef = useRef<HTMLDivElement | null>(null);
-  const overlayImgRef = useRef<HTMLImageElement | null>(null);
-  const activeThumb = useRef<HTMLImageElement | null>(null);
+  const [entered, setEntered] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setZoomActive(true), 100);
+    const t = setTimeout(() => setEntered(true), 100);
     return () => clearTimeout(t);
   }, []);
 
-  const openWork = (img: HTMLImageElement, work: Work) => {
-    activeThumb.current = img;
-    const rect = img.getBoundingClientRect();
-    setActiveWork(work);
-
-    requestAnimationFrame(() => {
-      const el = overlayImgRef.current;
-      const overlay = overlayRef.current;
-      if (!el || !overlay) return;
-      el.style.transition = "none";
-      el.style.top = `${rect.top}px`;
-      el.style.left = `${rect.left}px`;
-      el.style.width = `${rect.width}px`;
-      el.style.height = `${rect.height}px`;
-      el.style.borderRadius = "8px";
-      overlay.classList.add("active");
-
-      requestAnimationFrame(() => {
-        void el.offsetWidth;
-        el.style.transition = "";
-        const size = Math.min(window.innerWidth * 0.5, window.innerHeight * 0.55, 480);
-        el.style.top = `${(window.innerHeight - size) / 2}px`;
-        el.style.left = `${(window.innerWidth - size) / 2}px`;
-        el.style.width = `${size}px`;
-        el.style.height = `${size}px`;
-        el.style.borderRadius = "12px";
-      });
-    });
-  };
-
-  const closeWork = () => {
-    const thumb = activeThumb.current;
-    const el = overlayImgRef.current;
-    if (!thumb || !el) return;
-    const rect = thumb.getBoundingClientRect();
-    el.style.top = `${rect.top}px`;
-    el.style.left = `${rect.left}px`;
-    el.style.width = `${rect.width}px`;
-    el.style.height = `${rect.height}px`;
-    el.style.borderRadius = "8px";
-    overlayRef.current?.classList.remove("active");
-    setTimeout(() => {
-      activeThumb.current = null;
-      setActiveWork(null);
-    }, 450);
-  };
-
   return (
-    <section
-      id="works"
-      ref={sectionRef}
-      className={zoomActive ? "zoom-active" : ""}
-    >
+    <section id="works" className={entered ? "entered" : ""}>
       <div className="works-corner tl">
         <Link to="/">AYA.SYS</Link>
         <br />
@@ -146,46 +87,12 @@ function Works() {
         <Link to="/">&larr; BACK</Link>
       </div>
 
-      <div className="works-orbit">
-        {WORKS.map((work, i) => {
-          const angle = (i / WORKS.length) * 360;
-          return (
-            <div
-              className="works-orbit-item"
-              key={work.title}
-              style={{ "--orbit-angle": `${angle}deg` } as React.CSSProperties}
-            >
-              <img
-                src={work.src}
-                alt={work.title}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  openWork(e.currentTarget, work);
-                }}
-              />
-            </div>
-          );
-        })}
-      </div>
+      <h1 className="works-heading">
+        Works I Am Proud Of
+      </h1>
 
-      <div className="works-center-circle">
-        <span>Works I Am Proud Of</span>
-      </div>
-
-      <div
-        className="works-overlay"
-        ref={overlayRef}
-        onClick={closeWork}
-      >
-        {activeWork && (
-          <>
-            <img ref={overlayImgRef} src={activeWork.src} alt={activeWork.title} />
-            <div className="works-overlay-info">
-              <div className="works-overlay-title">{activeWork.title}</div>
-              <p className="works-overlay-desc">{activeWork.desc}</p>
-            </div>
-          </>
-        )}
+      <div className="works-testimonial-wrap">
+        <AnimatedTestimonials testimonials={TESTIMONIALS} autoplay />
       </div>
     </section>
   );

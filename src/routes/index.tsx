@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { ClientOnly } from "@tanstack/react-router";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
+
+const AvatarViewer = lazy(() => import("@/components/AvatarViewer"));
 
 import ayaPhoto from "@/assets/aya.webp.asset.json";
 import bookImg from "@/assets/book.webp.asset.json";

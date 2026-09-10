@@ -845,8 +845,6 @@
     .scroll-hint{ display:none; }
     .qmark-fact{ width:150px; font-size:0.68rem; }
     .why-me-section{ padding:5rem 6vw 6rem; }
-    .why-me-grid{ grid-template-columns:1fr; gap:1.2rem; }
-    .why-me-body{ margin-top:4rem; }
-    .why-me-closer{ margin-top:3rem; }
+    .why-me-stage{ grid-template-columns:1fr; gap:2rem; margin-top:3rem; }
   }
 

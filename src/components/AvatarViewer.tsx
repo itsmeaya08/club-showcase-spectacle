@@ -18,7 +18,7 @@ function AvatarModel() {
     scene.scale.setScalar(scale);
     scene.position.set(
       -center.x * scale,
-      -box.min.y * scale - 1.95,
+      -box.min.y * scale - 1.6,
       -center.z * scale,
     );
     scene.traverse((o) => {

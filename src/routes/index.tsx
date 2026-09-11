@@ -370,10 +370,10 @@ function Index() {
   /* ---------- morphing favorites dialog ---------- */
   const morphOverlayRef = useRef<HTMLDivElement | null>(null);
   const morphCardRef = useRef<HTMLDivElement | null>(null);
-  const activeFavIcon = useRef<HTMLImageElement | null>(null);
+  const activeFavIcon = useRef<HTMLElement | null>(null);
   const [activeFav, setActiveFav] = useState<Favorite | null>(null);
 
-  const openFav = (icon: HTMLImageElement, fav: Favorite) => {
+  const openFav = (icon: HTMLElement, fav: Favorite) => {
     activeFavIcon.current = icon;
     const rect = icon.getBoundingClientRect();
     setActiveFav(fav);
@@ -541,13 +541,13 @@ function Index() {
           <div className="favorites-section">
             <h2 className="favorites-title">MY FAVORITES</h2>
             <div className="favorites-row">
-              {FAVORITES.map((fav) => (
+              {FAVORITES.map((fav, index) => (
                 <div className="fav-item" key={fav.label}>
                   <div className="fav-label">{fav.label}</div>
-                  <img
-                    className={`fav-icon ${["Drink", "Food", "Random Item"].includes(fav.label) ? "fav-icon-cutout" : ""}`}
-                    src={fav.src}
-                    alt={fav.label}
+                  <button
+                    className={`fav-icon fav-color-${index + 1}`}
+                    type="button"
+                    aria-label={`Open ${fav.label} favorite`}
                     onClick={(e) => {
                       e.stopPropagation();
                       openFav(e.currentTarget, fav);
@@ -629,7 +629,10 @@ function Index() {
               >
                 &times;
               </button>
-              <img src={activeFav.src} alt={activeFav.title} style={{ height: 220 }} />
+              <div
+                className={`morph-color fav-color-${FAVORITES.indexOf(activeFav) + 1}`}
+                aria-label={`${activeFav.title} pastel color`}
+              />
               <div className="morph-body">
                 <div className="morph-title">{activeFav.title}</div>
                 <div className="morph-subtitle">{activeFav.subtitle}</div>

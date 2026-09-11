@@ -628,7 +628,10 @@
     width:min(9.2vw, 106px);
     height:min(11vw, 127px);
     border-radius:14px;
-    object-fit:cover;
+    border:0;
+    padding:0;
+    appearance:none;
+    -webkit-appearance:none;
     cursor:pointer;
     display:block;
     transition:transform 0.25s ease, box-shadow 0.25s ease;
@@ -637,14 +640,15 @@
     transform:translateY(-5px) scale(1.06);
     box-shadow:0 16px 26px rgba(0,0,0,0.2);
   }
-  .fav-icon-cutout{
-    object-fit:contain;
-    border-radius:0;
-    background:transparent;
-  }
-  .fav-icon-cutout:hover{
-    box-shadow:none;
-  }
+  .fav-color-1{ background:#f6c8cf; }
+  .fav-color-2{ background:#f4d6ad; }
+  .fav-color-3{ background:#c9d9f2; }
+  .fav-color-4{ background:#c8e3d2; }
+  .fav-color-5{ background:#e4d0f0; }
+  .fav-color-6{ background:#f3e6a8; }
+  .fav-color-7{ background:#c8e7e7; }
+  .fav-color-8{ background:#e8c9b9; }
+  .fav-color-9{ background:#d7d0f2; }
 
   @media (max-width:720px){
     .favorites-row{ justify-content:center; row-gap:2.2rem; }
@@ -685,6 +689,10 @@
     display:block;
     width:100%;
     object-fit:cover;
+  }
+  .morph-color{
+    width:100%;
+    height:220px;
   }
   .morph-close{
     position:absolute;

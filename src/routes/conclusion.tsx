@@ -20,13 +20,6 @@ export const Route = createFileRoute("/conclusion")({
   component: Conclusion,
 });
 
-const LINES = [
-  "You've seen what I've built.",
-  "You've seen what I care about.",
-  "You've seen a little bit of who I am.",
-  "Now I'd love the chance to show you what I can build with BSS.",
-];
-
 function Conclusion() {
   const [phase, setPhase] = useState<"end" | "pause" | "beginning" | "story">("end");
 
@@ -63,14 +56,6 @@ function Conclusion() {
       </div>
 
       <div className={`conclusion-story ${phase === "story" ? "visible" : ""}`}>
-        <div className="story-lines">
-          {LINES.map((line, i) => (
-            <p key={i} className="story-line" style={{ animationDelay: `${i * 0.4}s` }}>
-              {line}
-            </p>
-          ))}
-        </div>
-
         <div className="story-name-block">
           <h2 className="story-name">AYA SARSENGALIYEVA</h2>
           <p className="story-tags">Business &bull; Finance &bull; Creativity &bull; Curiosity</p>

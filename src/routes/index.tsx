@@ -453,11 +453,6 @@ function Index() {
               LEADER <span>/</span> STUDENT <span>/</span> BUILDER
             </div>
 
-            <div className="hero-index" aria-hidden="true">
-              <span>01 / 04</span>
-              <span>OPENING COVER</span>
-            </div>
-
             <button className="enter" onClick={onEnter}>
               <span className="word">ENTER</span>
               <span className="arrow">&rarr;</span>

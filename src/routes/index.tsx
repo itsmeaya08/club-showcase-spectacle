@@ -159,7 +159,7 @@ const FAVORITES: Favorite[] = [
     src: feelingImg.url,
     title: "Feeling",
     subtitle: "A warm, quiet morning",
-    desc: "A soft room, sunlight through the curtains, and the feeling of being completely at ease.",
+    desc: "Waking up well-rested. Unfortunately, feeling energized and ready to conquer the day is usually the exact opposite of how I feel in the mornings",
   },
 ];
 
@@ -545,7 +545,7 @@ function Index() {
                 <div className="fav-item" key={fav.label}>
                   <div className="fav-label">{fav.label}</div>
                   <img
-                    className="fav-icon"
+                    className={`fav-icon ${["Drink", "Food", "Random Item"].includes(fav.label) ? "fav-icon-cutout" : ""}`}
                     src={fav.src}
                     alt={fav.label}
                     onClick={(e) => {

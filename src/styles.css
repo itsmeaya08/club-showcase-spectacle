@@ -637,6 +637,14 @@
     transform:translateY(-5px) scale(1.06);
     box-shadow:0 16px 26px rgba(0,0,0,0.2);
   }
+  .fav-icon-cutout{
+    object-fit:contain;
+    border-radius:0;
+    background:transparent;
+  }
+  .fav-icon-cutout:hover{
+    box-shadow:none;
+  }
 
   @media (max-width:720px){
     .favorites-row{ justify-content:center; row-gap:2.2rem; }

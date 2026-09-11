@@ -40,12 +40,6 @@ function Talk() {
             <br />
             <em>talk.</em>
           </h1>
-          <p className="talk-lede">
-            Have an idea, an opportunity, or a question you can&apos;t stop thinking about? Send it
-            my way.
-          </p>
-          <p className="talk-note">I&apos;ll bring curiosity. You bring the interesting part.</p>
-
           <div className="talk-links">
             <a href="mailto:hi-its-aya@tamu.edu" className="talk-link talk-link-primary">
               <span>EMAIL</span>

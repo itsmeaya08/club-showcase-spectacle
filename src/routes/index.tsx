@@ -453,10 +453,6 @@ function Index() {
               LEADER <span>/</span> STUDENT <span>/</span> BUILDER
             </div>
 
-            <p className="hero-intro">
-              A personal archive of people, ideas, and the work I am learning to build.
-            </p>
-
             <div className="hero-index" aria-hidden="true">
               <span>01 / 04</span>
               <span>OPENING COVER</span>
@@ -494,7 +490,7 @@ function Index() {
                 <img src={ayaPhoto.url} alt="Aya Sarsengaliyeva" />
               </div>
             </div>
-            <div className="scroll-hint">SCROLL &darr;</div>
+            <div className="scroll-hint">CLICK A PHOTO !</div>
           </div>
 
           <div className="carousel-section">
@@ -552,7 +548,7 @@ function Index() {
 
           <div className="why-me-section">
             <div className="why-me-quote-mark">“</div>
-            <h2 className="why-me-quote">You miss 100% of the applications you don’t submit.</h2>
+            <h2 className="why-me-quote">You miss 100% of the shots you don’t take.</h2>
             <p className="why-me-attribution">— Wayne Gretzky</p>
 
             <div className="why-me-intro">

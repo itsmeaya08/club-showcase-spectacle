@@ -11,6 +11,8 @@ export default defineConfig({
   // GitHub Pages is static hosting, so prerender every app route and disable the server build.
   nitro: false,
   tanstackStart: {
+    // Emit static HTML for every route so Vercel always has a real entry point.
+    prerender: { enabled: true, crawlLinks: true },
     ssr: false,
     prerender: {
       enabled: true,

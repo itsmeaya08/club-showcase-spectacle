@@ -110,7 +110,7 @@ const FAVORITES: Favorite[] = [
     src: movieImg.url,
     title: "Movie",
     subtitle: "A Big Bold Beautiful Journey — dir. Kogonada",
-    desc: "A Big Bold Beautiful Journey, directed by Kogonada. A film that made me feel calm — and made me feel seen.",
+    desc: "A film that felt strangely familiar, even though I had never lived its story.",
   },
   {
     label: "Drink",

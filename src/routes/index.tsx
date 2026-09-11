@@ -492,8 +492,7 @@ function Index() {
                     <Fragmentish key={fact} fact={fact} />
                   ))}
                 </div>
-                <imgsrc={`${import.meta.env.BASE_URL}images/aya.webp.jpg`}
-                alt="Aya Sarsengaliyeva" />
+                <img\n                  src={`${import.meta.env.BASE_URL}images/aya.webp.jpg`}\n                  alt="Aya Sarsengaliyeva"\n                />
               </div>
             </div>
             <div className="scroll-hint">CLICK A PHOTO !</div>

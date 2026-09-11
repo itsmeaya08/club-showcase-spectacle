@@ -57,9 +57,12 @@ function Conclusion() {
 
       <div className={`conclusion-story ${phase === "story" ? "visible" : ""}`}>
         <div className="story-name-block">
-          <p className="story-tags">THE REST IS UP TO YOU.</p>
           <h2 className="story-name">AYA SARSENGALIYEVA</h2>
         </div>
+        <Link to="/talk" className="lets-talk-btn">
+          <span className="word">LET&apos;S TALK</span>
+          <span className="arrow">&rarr;</span>
+        </Link>
       </div>
     </section>
   );

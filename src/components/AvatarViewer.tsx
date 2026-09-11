@@ -10,6 +10,9 @@ function AvatarModel() {
 
   useLayoutEffect(() => {
     if (!group.current) return;
+    // Reset first: the cached GLTF scene may already be scaled from a prior mount.
+    scene.scale.setScalar(1);
+    scene.position.set(0, 0, 0);
     scene.updateMatrixWorld(true);
     // Skinned meshes need pose-aware bounds; Box3.setFromObject reads bind pose.
     const box = new THREE.Box3();
@@ -27,7 +30,6 @@ function AvatarModel() {
     const center = box.getCenter(new THREE.Vector3());
     const height = size.y || 1;
     const scale = 3.6 / height;
-    console.log("AVBOX", JSON.stringify({ size: size.toArray(), center: center.toArray(), min: box.min.toArray(), max: box.max.toArray() }));
     scene.scale.setScalar(scale);
     scene.position.set(
       -center.x * scale,

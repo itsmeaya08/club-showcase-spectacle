@@ -73,7 +73,7 @@ function Talk() {
             <br />
             CONVERSATIONS
           </div>
-          <img src="/talk/aya-contact.jpg" alt="Aya Sarsengaliyeva" />
+          <img src={`${import.meta.env.BASE_URL}talk/aya-contact.jpg`} alt="Aya Sarsengaliyeva" />
           <div className="talk-portrait-caption">
             AYA / 2026
             <br />

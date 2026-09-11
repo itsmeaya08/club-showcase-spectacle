@@ -166,37 +166,26 @@ const FAVORITES: Favorite[] = [
 const WHY_ME = [
   {
     number: "01",
-    title: "Initiative",
-    label: "I START THE THING",
+    title: "I Love Giving",
     description:
-      "I do not wait for perfect conditions. I find the first useful move, make it visible, and give people something to build on.",
-    proof:
-      "From event concepts to community spaces, I turn an open question into a real next step.",
+      "I genuinely enjoy creating opportunities, helping people, and making others feel valued.",
   },
   {
     number: "02",
-    title: "Clarity",
-    label: "I MAKE IT MAKE SENSE",
-    description:
-      "I enjoy taking messy information and making it easier to understand, easier to act on, and more inviting to other people.",
-    proof: "Business, finance, storytelling, and design meet in the way I organize ideas.",
+    title: "I Adapt Quickly",
+    description: "New environment? New people? New challenge? I figure it out and find my place.",
   },
   {
     number: "03",
-    title: "Momentum",
-    label: "I BRING PEOPLE WITH ME",
+    title: "I’m Proactive",
     description:
-      "The best work is rarely a solo performance. I create energy, communicate early, and help a team keep moving when the brief changes.",
-    proof: "I care about the room around the work as much as the final result.",
+      "I don’t wait around for someone to tell me what needs to be done. If I see something that could be better, I start.",
   },
   {
     number: "04",
-    title: "Curiosity",
-    label: "I KEEP LEARNING",
+    title: "I Bring People Together",
     description:
-      "I ask better questions, test unfamiliar tools, and look for the connection between disciplines that other people might miss.",
-    proof:
-      "That curiosity is why I am drawn to finance, creative strategy, people, and systems at once.",
+      "Some of my favorite things are creating connections, building communities, and giving people a reason to show up.",
   },
 ];
 
@@ -575,56 +564,31 @@ function Index() {
             <p className="why-me-attribution">— Wayne Gretzky</p>
 
             <div className="why-me-intro">
-              <span className="why-me-kicker">WHY ME / A WORKING PROFILE</span>
-              <p>
-                I bring a builder’s energy to the room: I notice what is missing, make the idea
-                clearer, and help people move from intention to action.
-              </p>
+              <span className="why-me-kicker">WHY ME / FOUR THINGS I BRING</span>
+              <p>I care about the people around the work as much as the work itself.</p>
             </div>
 
-            <div className="why-me-stage">
-              <div className="why-me-orbit" aria-label="Interactive qualities">
-                <div className="orbit-ring orbit-ring-one" />
-                <div className="orbit-ring orbit-ring-two" />
-                <div className="orbit-core">
-                  <span>{WHY_ME[activeWhy].number}</span>
-                  <small>AYA / FIT</small>
-                </div>
-                {WHY_ME.map((skill, index) => (
+            <div className="why-me-profile">
+              <figure className="why-me-photo">
+                <img src="/why-me/aya-cafe.jpg" alt="Aya smiling in a café" />
+                <figcaption>AYA / PEOPLE PERSON</figcaption>
+              </figure>
+              <div className="why-me-reasons" aria-label="Four reasons to work with Aya">
+                {WHY_ME.map((reason, index) => (
                   <button
-                    key={skill.number}
-                    className={`orbit-node orbit-node-${index + 1} ${index === activeWhy ? "active" : ""}`}
+                    key={reason.number}
+                    className={`why-me-reason ${index === activeWhy ? "active" : ""}`}
                     onClick={() => setActiveWhy(index)}
-                    aria-label={`Show ${skill.title}`}
                     aria-pressed={index === activeWhy}
                   >
-                    <span>{skill.number}</span>
-                    <b>{skill.title}</b>
+                    <span className="why-me-reason-number">{reason.number}</span>
+                    <span className="why-me-reason-copy">
+                      <strong>{reason.title}</strong>
+                      <span>{reason.description}</span>
+                    </span>
+                    <span className="why-me-reason-arrow">↗</span>
                   </button>
                 ))}
-              </div>
-              <div className="why-me-textbox">
-                <div className="why-me-textbox-top">
-                  <span>{WHY_ME[activeWhy].label}</span>
-                  <span>{WHY_ME[activeWhy].number} / 04</span>
-                </div>
-                <h3>{WHY_ME[activeWhy].title}</h3>
-                <p>{WHY_ME[activeWhy].description}</p>
-                <div className="why-me-proof">
-                  <span>PROOF OF VALUE</span>
-                  <p>{WHY_ME[activeWhy].proof}</p>
-                </div>
-                <div className="why-me-tabs">
-                  {WHY_ME.map((skill, index) => (
-                    <button
-                      key={skill.number}
-                      onClick={() => setActiveWhy(index)}
-                      className={index === activeWhy ? "active" : ""}
-                    >
-                      {skill.number}
-                    </button>
-                  ))}
-                </div>
               </div>
             </div>
 

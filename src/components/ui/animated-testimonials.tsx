@@ -66,7 +66,7 @@ export function AnimatedTestimonials({
               <img
                 src={testimonial.src}
                 alt={testimonial.name}
-                className="h-full w-full rounded-2xl object-cover shadow-2xl"
+                className="h-full w-full rounded-2xl bg-[#171717] object-contain shadow-2xl"
               />
             </div>
           ))}

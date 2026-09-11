@@ -87,7 +87,14 @@ function Works() {
         <Link to="/">&larr; BACK</Link>
       </div>
 
-      <h1 className="works-heading">Works I Am Proud Of</h1>
+      <div className="works-heading-block">
+        <p className="works-kicker">SELECTED ARCHIVE / 2026</p>
+        <h1 className="works-heading">Works I Am Proud Of</h1>
+        <p className="works-intro">
+          A record of the rooms I helped build, the people I learned from, and the moments that
+          stayed with me.
+        </p>
+      </div>
 
       <div className="works-testimonial-wrap">
         <AnimatedTestimonials testimonials={TESTIMONIALS} autoplay />

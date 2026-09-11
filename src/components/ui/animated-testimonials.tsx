@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-type Testimonial = {
+type Project = {
   quote: string;
   name: string;
   designation: string;
@@ -9,7 +9,7 @@ type Testimonial = {
 };
 
 type AnimatedTestimonialsProps = {
-  testimonials: Testimonial[];
+  testimonials: Project[];
   autoplay?: boolean;
   className?: string;
 };
@@ -23,138 +23,113 @@ export function AnimatedTestimonials({
   const [isAnimating, setIsAnimating] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleNext = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setActive((prev) => (prev + 1) % testimonials.length);
-    setTimeout(() => setIsAnimating(false), 600);
-  };
+  const moveTo = useCallback(
+    (next: number) => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      setActive(next);
+      timeoutRef.current = setTimeout(() => setIsAnimating(false), 600);
+    },
+    [isAnimating],
+  );
 
-  const handlePrev = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-    setTimeout(() => setIsAnimating(false), 600);
-  };
+  const handleNext = useCallback(() => {
+    moveTo((active + 1) % testimonials.length);
+  }, [active, moveTo, testimonials.length]);
+
+  const handlePrev = useCallback(() => {
+    moveTo((active - 1 + testimonials.length) % testimonials.length);
+  }, [active, moveTo, testimonials.length]);
 
   useEffect(() => {
     if (autoplay) {
-      timeoutRef.current = setTimeout(handleNext, 5000);
+      const autoplayTimer = setTimeout(handleNext, 6500);
+      return () => clearTimeout(autoplayTimer);
     }
+  }, [active, autoplay, handleNext]);
+
+  useEffect(() => {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [active, autoplay]);
+  }, []);
+
+  const project = testimonials[active];
 
   return (
-    <div className={cn("relative w-full", className)}>
-      <div className="relative mx-auto max-w-3xl px-4">
-        {/* Image stack */}
-        <div className="relative h-[320px] w-full sm:h-[380px]">
-          {testimonials.map((testimonial, index) => (
+    <div className={cn("project-archive", className)}>
+      <div className="project-index" aria-label="Project index">
+        <span className="project-index-label">INDEX</span>
+        <div className="project-index-list">
+          {testimonials.map((item, index) => (
+            <button
+              key={item.name}
+              className={cn("project-index-item", index === active && "active")}
+              onClick={() => moveTo(index)}
+              aria-label={`Open project ${index + 1}: ${item.name}`}
+              aria-current={index === active ? "true" : undefined}
+            >
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <span>{item.name}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="project-main">
+        <div className="project-art-label">
+          <span>SELECTED WORK</span>
+          <span>
+            {String(active + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
+          </span>
+        </div>
+        <div className="project-image-stage">
+          {testimonials.map((item, index) => (
             <div
-              key={index}
+              key={item.name}
               className={cn(
-                "absolute inset-0 flex items-center justify-center transition-all duration-500 ease-out",
-                index === active
-                  ? "z-10 scale-100 opacity-100"
-                  : index < active
-                    ? "z-0 -translate-x-40 scale-75 opacity-0"
-                    : "z-0 translate-x-40 scale-75 opacity-0",
+                "project-image-frame",
+                index === active ? "active" : index < active ? "past" : "future",
               )}
             >
-              <img
-                src={testimonial.src}
-                alt={testimonial.name}
-                className="h-full w-full rounded-2xl bg-[#171717] object-contain shadow-2xl"
-              />
+              <img src={item.src} alt={item.name} />
+              <span className="project-image-corner">
+                AYA / {String(index + 1).padStart(2, "0")}
+              </span>
             </div>
           ))}
         </div>
 
-        {/* Text content */}
-        <div className="relative mt-6 min-h-[140px]">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className={cn(
-                "absolute inset-0 transition-all duration-500 ease-out",
-                index === active
-                  ? "translate-y-0 opacity-100"
-                  : "pointer-events-none translate-y-4 opacity-0",
-              )}
-            >
-              <p className="text-center text-base leading-relaxed text-current sm:text-lg">
-                &ldquo;{testimonial.quote}&rdquo;
-              </p>
-              <div className="mt-4 text-center">
-                <div className="font-semibold text-current">{testimonial.name}</div>
-                <div className="text-sm opacity-60">{testimonial.designation}</div>
-              </div>
-            </div>
-          ))}
+        <div className="project-copy">
+          <div className="project-copy-meta">
+            <span>PROJECT {String(active + 1).padStart(2, "0")}</span>
+            <span>{project.designation}</span>
+          </div>
+          <h2>{project.name}</h2>
+          <p>{project.quote}</p>
         </div>
 
-        {/* Navigation */}
-        <div className="mt-4 flex items-center justify-center gap-6">
+        <div className="project-controls">
           <button
+            className="project-arrow"
             onClick={handlePrev}
             disabled={isAnimating}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-current/20 text-current/60 transition-colors hover:text-current disabled:opacity-30"
-            aria-label="Previous testimonial"
+            aria-label="Previous project"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
+            <span>←</span> PREV
           </button>
-          <div className="flex gap-2">
+          <div className="project-progress" aria-hidden="true">
             {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  if (!isAnimating) {
-                    setIsAnimating(true);
-                    setActive(index);
-                    setTimeout(() => setIsAnimating(false), 600);
-                  }
-                }}
-                className={cn(
-                  "h-2 rounded-full transition-all duration-300",
-                  index === active ? "w-8 bg-current" : "w-2 bg-current/30",
-                )}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
+              <span key={index} className={cn(index === active && "active")} />
             ))}
           </div>
           <button
+            className="project-arrow"
             onClick={handleNext}
             disabled={isAnimating}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-current/20 text-current/60 transition-colors hover:text-current disabled:opacity-30"
-            aria-label="Next testimonial"
+            aria-label="Next project"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M9 18l6-6-6-6" />
-            </svg>
+            NEXT <span>→</span>
           </button>
         </div>
       </div>

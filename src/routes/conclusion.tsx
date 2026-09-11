@@ -76,10 +76,10 @@ function Conclusion() {
           <p className="story-tags">Business &bull; Finance &bull; Creativity &bull; Curiosity</p>
         </div>
 
-        <a href="mailto:aya@example.com" className="lets-talk-btn">
-          <span className="word">LET'S TALK</span>
+        <Link to="/talk" className="lets-talk-btn">
+          <span className="word">LET&apos;S TALK</span>
           <span className="arrow">&rarr;</span>
-        </a>
+        </Link>
       </div>
     </section>
   );

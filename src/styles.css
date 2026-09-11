@@ -902,7 +902,7 @@
   #works{
     position:fixed;
     inset:0;
-    background:var(--void);
+    background:linear-gradient(180deg, var(--void) 0%, #1d1b1a 100%);
     color:var(--bone);
     overflow-y:auto;
     overflow-x:hidden;
@@ -990,7 +990,7 @@
   .project-index-item:hover,.project-index-item.active{ color:var(--bone); padding-left:0.45rem; }
   .project-main{ min-width:0; }
   .project-art-label{ color:var(--graphite); margin-bottom:0.85rem; }
-  .project-image-stage{ position:relative; height:clamp(300px, 48vw, 540px); overflow:hidden; background:#151515; border:1px solid rgba(242,240,235,0.15); }
+  .project-image-stage{ position:relative; height:clamp(240px, 38.4vw, 432px); overflow:hidden; background:var(--bone); border:1px solid rgba(242,240,235,0.55); box-shadow:0 18px 45px rgba(0,0,0,0.22); }
   .project-image-stage::after{ content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(135deg, rgba(166,0,0,0.12), transparent 30%, transparent 70%, rgba(242,240,235,0.04)); mix-blend-mode:screen; }
   .project-image-frame{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; transform:translateX(12%) scale(1.03); transition:opacity 0.55s ease, transform 0.65s cubic-bezier(.2,.8,.2,1); }
   .project-image-frame.past{ transform:translateX(-12%) scale(0.98); }
@@ -1028,7 +1028,7 @@
     .project-index{ padding-top:0.75rem; }
     .project-index-list{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:0 1rem; margin-top:0.75rem; }
     .project-index-item{ font-size:0.66rem; }
-    .project-image-stage{ height:clamp(260px, 80vw, 430px); }
+    .project-image-stage{ height:clamp(220px, 64vw, 344px); }
     .project-copy h2{ font-size:1.45rem; }
     .project-progress span{ width:0.8rem; }
     .project-progress span.active{ width:2rem; }
@@ -1239,3 +1239,57 @@
     .story-name{ font-size:clamp(1.6rem, 9vw, 2.8rem); }
     .lets-talk-btn{ padding:0.8rem 2rem; font-size:0.78rem; }
   }
+
+
+/* ---------- LET'S TALK (PAGE 5) ---------- */
+#talk-page{
+  position:fixed;
+  inset:0;
+  overflow-y:auto;
+  background:var(--bone);
+  color:var(--void);
+  padding:clamp(5rem, 8vw, 7rem) clamp(1.25rem, 6vw, 6rem) 2rem;
+}
+.talk-corner{ position:fixed; z-index:10; font:0.68rem 'IBM Plex Mono', monospace; letter-spacing:0.08em; line-height:1.5; }
+.talk-corner a{ color:#74716a; text-decoration:none; transition:color 0.2s ease; }
+.talk-corner a:hover{ color:var(--void); }
+.talk-corner span{ color:var(--signal); }
+.talk-corner-tl{ top:1.75rem; left:1.75rem; }
+.talk-corner-br{ right:1.75rem; bottom:1.75rem; }
+.talk-layout{ width:min(100%, 1180px); min-height:calc(100vh - 11rem); margin:0 auto; display:grid; grid-template-columns:minmax(0, 1.05fr) minmax(320px, 0.95fr); align-items:center; gap:clamp(2rem, 7vw, 8rem); }
+.talk-copy{ position:relative; z-index:2; padding:2rem 0; }
+.talk-kicker{ color:var(--signal); font:0.68rem 'IBM Plex Mono', monospace; letter-spacing:0.15em; }
+.talk-copy h1{ margin-top:1.2rem; font:900 clamp(4.5rem, 11vw, 10rem) 'Unbounded', sans-serif; letter-spacing:-0.09em; line-height:0.75; }
+.talk-copy h1 em{ color:var(--signal); font:italic clamp(5.2rem, 13vw, 11rem) 'Instrument Serif', serif; letter-spacing:-0.08em; }
+.talk-lede{ max-width:31rem; margin-top:2.2rem; font:clamp(1.35rem, 2.5vw, 2rem) 'Instrument Serif', serif; line-height:1.12; }
+.talk-note{ margin-top:1rem; color:#74716a; font:0.76rem 'IBM Plex Mono', monospace; letter-spacing:0.05em; }
+.talk-links{ display:flex; flex-direction:column; max-width:35rem; margin-top:3rem; border-top:1px solid rgba(10,10,10,0.28); }
+.talk-link{ position:relative; display:grid; grid-template-columns:7rem 1fr auto; align-items:center; gap:1rem; padding:1rem 0; border-bottom:1px solid rgba(10,10,10,0.28); color:var(--void); text-decoration:none; transition:padding-left 0.3s ease, background 0.3s ease; }
+.talk-link:hover{ padding-left:0.7rem; background:rgba(166,0,0,0.07); }
+.talk-link > span:first-child{ color:#74716a; font:0.6rem 'IBM Plex Mono', monospace; letter-spacing:0.12em; }
+.talk-link strong{ font:500 clamp(0.9rem, 1.4vw, 1.1rem) 'IBM Plex Sans', sans-serif; word-break:break-word; }
+.talk-link-primary strong{ color:var(--signal); }
+.talk-arrow{ color:var(--signal); font-size:1.25rem; transition:transform 0.25s ease; }
+.talk-link:hover .talk-arrow{ transform:translate(4px, -4px); }
+.talk-portrait{ position:relative; min-height:clamp(420px, 58vw, 680px); display:flex; align-items:flex-end; justify-content:center; }
+.talk-portrait-backdrop{ position:absolute; inset:8% 4% 2% 12%; background:var(--void); clip-path:polygon(9% 0, 100% 8%, 91% 100%, 0 91%); }
+.talk-portrait::before{ content:""; position:absolute; width:72%; aspect-ratio:1; border:1px solid rgba(166,0,0,0.55); border-radius:50%; top:4%; left:8%; }
+.talk-portrait img{ position:relative; z-index:1; width:min(100%, 500px); max-height:clamp(420px, 66vh, 730px); object-fit:contain; object-position:center bottom; filter:grayscale(0.35) contrast(1.05); transform:translateX(5%); }
+.talk-portrait-sticker{ position:absolute; z-index:3; top:11%; right:-2%; padding:0.7rem 0.8rem; background:var(--signal); color:var(--bone); transform:rotate(7deg); font:0.6rem 'IBM Plex Mono', monospace; letter-spacing:0.08em; line-height:1.35; }
+.talk-portrait-caption{ position:absolute; z-index:3; left:2%; bottom:3%; color:var(--bone); font:0.58rem 'IBM Plex Mono', monospace; letter-spacing:0.1em; line-height:1.5; }
+.talk-footer{ width:min(100%, 1180px); margin:1rem auto 0; padding-top:1rem; border-top:1px solid rgba(10,10,10,0.28); display:flex; justify-content:space-between; gap:1rem; color:#74716a; font:0.6rem 'IBM Plex Mono', monospace; letter-spacing:0.1em; }
+.talk-footer span:last-child{ color:var(--signal); }
+@media (max-width:720px){
+  #talk-page{ padding:4.5rem 1.25rem 1.5rem; }
+  .talk-layout{ display:flex; flex-direction:column-reverse; align-items:stretch; gap:0; min-height:auto; }
+  .talk-portrait{ min-height:350px; margin:0 -0.5rem; }
+  .talk-portrait img{ max-height:400px; }
+  .talk-portrait-sticker{ right:1%; top:8%; }
+  .talk-copy{ padding:1rem 0 2rem; }
+  .talk-copy h1{ font-size:clamp(4.5rem, 19vw, 7rem); }
+  .talk-copy h1 em{ font-size:clamp(5rem, 22vw, 8rem); }
+  .talk-lede{ margin-top:1.5rem; font-size:1.35rem; }
+  .talk-links{ margin-top:2rem; }
+  .talk-link{ grid-template-columns:5.2rem 1fr auto; gap:0.5rem; }
+  .talk-footer{ flex-direction:column; gap:0.45rem; }
+}

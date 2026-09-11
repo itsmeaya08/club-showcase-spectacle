@@ -6,6 +6,8 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  // Generate the server output Vercel expects.
+  nitro: { preset: "vercel" },
   // GitHub Pages is static hosting, so prerender every app route and disable the server build.
   nitro: false,
   tanstackStart: {

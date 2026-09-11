@@ -1,8 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { ClientOnly } from "@tanstack/react-router";
-import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
-
-const AvatarViewer = lazy(() => import("@/components/AvatarViewer"));
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import ayaPhoto from "@/assets/aya.webp.asset.json";
 import bookImg from "@/assets/book.webp.asset.json";
@@ -138,6 +135,43 @@ const FAVORITES: Favorite[] = [
   },
 ];
 
+const WHY_ME = [
+  {
+    number: "01",
+    title: "Initiative",
+    label: "I START THE THING",
+    description:
+      "I do not wait for perfect conditions. I find the first useful move, make it visible, and give people something to build on.",
+    proof:
+      "From event concepts to community spaces, I turn an open question into a real next step.",
+  },
+  {
+    number: "02",
+    title: "Clarity",
+    label: "I MAKE IT MAKE SENSE",
+    description:
+      "I enjoy taking messy information and making it easier to understand, easier to act on, and more inviting to other people.",
+    proof: "Business, finance, storytelling, and design meet in the way I organize ideas.",
+  },
+  {
+    number: "03",
+    title: "Momentum",
+    label: "I BRING PEOPLE WITH ME",
+    description:
+      "The best work is rarely a solo performance. I create energy, communicate early, and help a team keep moving when the brief changes.",
+    proof: "I care about the room around the work as much as the final result.",
+  },
+  {
+    number: "04",
+    title: "Curiosity",
+    label: "I KEEP LEARNING",
+    description:
+      "I ask better questions, test unfamiliar tools, and look for the connection between disciplines that other people might miss.",
+    proof:
+      "That curiosity is why I am drawn to finance, creative strategy, people, and systems at once.",
+  },
+];
+
 function Index() {
   const navigate = useNavigate();
   const [page, setPage] = useState<"hero" | "who">("hero");
@@ -147,6 +181,7 @@ function Index() {
   const [bootStep, setBootStep] = useState(-1);
   const [heroExit, setHeroExit] = useState(false);
   const [whoActive, setWhoActive] = useState(false);
+  const [activeWhy, setActiveWhy] = useState(0);
 
   const heroRef = useRef<HTMLElement | null>(null);
   const spotlightRef = useRef<HTMLDivElement | null>(null);
@@ -520,15 +555,58 @@ function Index() {
             <h2 className="why-me-quote">You miss 100% of the applications you don’t submit.</h2>
             <p className="why-me-attribution">— Wayne Gretzky</p>
 
+            <div className="why-me-intro">
+              <span className="why-me-kicker">WHY ME / A WORKING PROFILE</span>
+              <p>
+                I bring a builder’s energy to the room: I notice what is missing, make the idea
+                clearer, and help people move from intention to action.
+              </p>
+            </div>
+
             <div className="why-me-stage">
-              <div className="avatar-stage">
-                <ClientOnly fallback={<div className="avatar-loading">loading avatar…</div>}>
-                  <Suspense fallback={<div className="avatar-loading">loading avatar…</div>}>
-                    <AvatarViewer />
-                  </Suspense>
-                </ClientOnly>
+              <div className="why-me-orbit" aria-label="Interactive qualities">
+                <div className="orbit-ring orbit-ring-one" />
+                <div className="orbit-ring orbit-ring-two" />
+                <div className="orbit-core">
+                  <span>{WHY_ME[activeWhy].number}</span>
+                  <small>AYA / FIT</small>
+                </div>
+                {WHY_ME.map((skill, index) => (
+                  <button
+                    key={skill.number}
+                    className={`orbit-node orbit-node-${index + 1} ${index === activeWhy ? "active" : ""}`}
+                    onClick={() => setActiveWhy(index)}
+                    aria-label={`Show ${skill.title}`}
+                    aria-pressed={index === activeWhy}
+                  >
+                    <span>{skill.number}</span>
+                    <b>{skill.title}</b>
+                  </button>
+                ))}
               </div>
-              <div className="why-me-textbox" />
+              <div className="why-me-textbox">
+                <div className="why-me-textbox-top">
+                  <span>{WHY_ME[activeWhy].label}</span>
+                  <span>{WHY_ME[activeWhy].number} / 04</span>
+                </div>
+                <h3>{WHY_ME[activeWhy].title}</h3>
+                <p>{WHY_ME[activeWhy].description}</p>
+                <div className="why-me-proof">
+                  <span>PROOF OF VALUE</span>
+                  <p>{WHY_ME[activeWhy].proof}</p>
+                </div>
+                <div className="why-me-tabs">
+                  {WHY_ME.map((skill, index) => (
+                    <button
+                      key={skill.number}
+                      onClick={() => setActiveWhy(index)}
+                      className={index === activeWhy ? "active" : ""}
+                    >
+                      {skill.number}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <button className="view-works-btn" onClick={() => navigate({ to: "/works" })}>

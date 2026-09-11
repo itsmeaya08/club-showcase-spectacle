@@ -640,15 +640,15 @@
     transform:translateY(-5px) scale(1.06);
     box-shadow:0 16px 26px rgba(0,0,0,0.2);
   }
-  .fav-color-1{ background:#f6c8cf; }
-  .fav-color-2{ background:#f4d6ad; }
-  .fav-color-3{ background:#c9d9f2; }
-  .fav-color-4{ background:#c8e3d2; }
-  .fav-color-5{ background:#e4d0f0; }
-  .fav-color-6{ background:#f3e6a8; }
-  .fav-color-7{ background:#c8e7e7; }
-  .fav-color-8{ background:#e8c9b9; }
-  .fav-color-9{ background:#d7d0f2; }
+  .fav-color-1{ background:#a51c30; } /* Harvard red */
+  .fav-color-2{ background:#046a38; } /* Emerald green */
+  .fav-color-3{ background:#002d72; } /* Deep royal blue */
+  .fav-color-4{ background:#f3e5ab; } /* Buttermilk yellow */
+  .fav-color-5{ background:#5d3a29; } /* Chocolate brown */
+  .fav-color-6{ background:#f8f5e8; } /* Egg-cream white */
+  .fav-color-7{ background:#708238; } /* Olive green */
+  .fav-color-8{ background:#5a5750; } /* Dark creamy grey */
+  .fav-color-9{ background:#2b193d; } /* Deep purple */
 
   @media (max-width:720px){
     .favorites-row{ justify-content:center; row-gap:2.2rem; }

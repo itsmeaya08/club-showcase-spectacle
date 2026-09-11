@@ -10,11 +10,23 @@ function AvatarModel() {
 
   useLayoutEffect(() => {
     if (!group.current) return;
-    const box = new THREE.Box3().setFromObject(scene);
+    scene.updateMatrixWorld(true);
+    // Skinned meshes need pose-aware bounds; Box3.setFromObject reads bind pose.
+    const box = new THREE.Box3();
+    scene.traverse((o) => {
+      const mesh = o as THREE.Mesh;
+      if ((mesh as THREE.SkinnedMesh).isSkinnedMesh) {
+        const sm = mesh as THREE.SkinnedMesh;
+        sm.computeBoundingBox();
+        box.union(sm.boundingBox!.clone().applyMatrix4(sm.matrixWorld));
+      } else if (mesh.isMesh) {
+        box.expandByObject(mesh);
+      }
+    });
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
     const height = size.y || 1;
-    const scale = 4.6 / height;
+    const scale = 3.6 / height;
     scene.scale.setScalar(scale);
     scene.position.set(
       -center.x * scale,

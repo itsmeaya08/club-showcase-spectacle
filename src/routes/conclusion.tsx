@@ -7,14 +7,12 @@ export const Route = createFileRoute("/conclusion")({
       { title: "AYA.SYS — The Story Begins" },
       {
         name: "description",
-        content:
-          "AYA SARSENGALIYEVA — Business, Finance, Creativity, Curiosity. Let's talk.",
+        content: "AYA SARSENGALIYEVA — Business, Finance, Creativity, Curiosity. Let's talk.",
       },
       { property: "og:title", content: "AYA.SYS — The Story Begins" },
       {
         property: "og:description",
-        content:
-          "AYA SARSENGALIYEVA — Business, Finance, Creativity, Curiosity. Let's talk.",
+        content: "AYA SARSENGALIYEVA — Business, Finance, Creativity, Curiosity. Let's talk.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -60,7 +58,7 @@ function Conclusion() {
       <div className={`conclusion-pause ${phase === "pause" ? "visible" : ""}`} />
 
       {/* Phase 3+4: BEGINNING OF THE STORY + body text */}
-      <div className={`conclusion-beginning ${phase === "beginning" || phase === "story" ? "visible" : ""}`}>
+      <div className={`conclusion-beginning ${phase === "beginning" ? "visible" : ""}`}>
         <h1 className="beginning-title">BEGINNING OF THE STORY</h1>
       </div>
 

@@ -374,10 +374,7 @@ function Index() {
 
   return (
     <>
-      <div
-        id="boot"
-        className={`${bootDone ? "hide" : ""} ${bootGlitch ? "glitch" : ""}`.trim()}
-      >
+      <div id="boot" className={`${bootDone ? "hide" : ""} ${bootGlitch ? "glitch" : ""}`.trim()}>
         <div className="boot-corner tl">
           AYA.SYS
           <br />
@@ -419,6 +416,15 @@ function Index() {
 
             <div className="tag">
               LEADER <span>/</span> STUDENT <span>/</span> BUILDER
+            </div>
+
+            <p className="hero-intro">
+              A personal archive of people, ideas, and the work I am learning to build.
+            </p>
+
+            <div className="hero-index" aria-hidden="true">
+              <span>01 / 04</span>
+              <span>OPENING COVER</span>
             </div>
 
             <button className="enter" onClick={onEnter}>
@@ -511,9 +517,7 @@ function Index() {
 
           <div className="why-me-section">
             <div className="why-me-quote-mark">“</div>
-            <h2 className="why-me-quote">
-              You miss 100% of the applications you don’t submit.
-            </h2>
+            <h2 className="why-me-quote">You miss 100% of the applications you don’t submit.</h2>
             <p className="why-me-attribution">— Wayne Gretzky</p>
 
             <div className="why-me-stage">
@@ -527,10 +531,7 @@ function Index() {
               <div className="why-me-textbox" />
             </div>
 
-            <button
-              className="view-works-btn"
-              onClick={() => navigate({ to: "/works" })}
-            >
+            <button className="view-works-btn" onClick={() => navigate({ to: "/works" })}>
               <span className="word">VIEW MY WORKS</span>
               <span className="arrow">&rarr;</span>
             </button>

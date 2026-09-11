@@ -36,35 +36,35 @@ const TESTIMONIALS: Testimonial[] = [
       "Organized MUN conferences, debate competitions, project competitions, and countless other events all over Astana. I met what felt like half of the city through AWSD and genuinely loved it. My favorite part would be sitting down with the team after an event and realizing how well it went.",
     name: "AWSD: Event Organizer",
     designation: "01 / EVENT ORGANIZER",
-    src: "/works/work-1.png",
+    src: `${import.meta.env.BASE_URL}works/work-1.png`,
   },
   {
     quote:
       "Built a prototype of a protective bracelet for women with my classmates. I loved watching an idea become something tangible and also watching my teammates and me work relentlessly toward the same goal. Winning was exciting, but seeing our hard work pay off together was the best part.",
     name: "1st Place Business Innovation Competition",
     designation: "02 / BUSINESS INNOVATION",
-    src: "/works/work-2.png",
+    src: `${import.meta.env.BASE_URL}works/work-2.png`,
   },
   {
     quote:
       "I had just moved to a new school, and it was a brand-new class. As class president, I had the opportunity to bring us together. Watching classmates who barely knew each other become close friends, and eventually being known as one of the closest classes in our grade, was incredibly rewarding.",
     name: "Class President",
     designation: "03 / COMMUNITY BUILDING",
-    src: "/works/work-3.png",
+    src: `${import.meta.env.BASE_URL}works/work-3.png`,
   },
   {
     quote:
       "Led the AWSD Telegram chat by sharing weekly opportunities for students in Kazakhstan, from competitions and clubs to projects and programs. I loved the idea that one message could put an opportunity in front of someone who might never have found it otherwise.",
     name: "YouthBridge",
     designation: "04 / STUDENT OUTREACH",
-    src: "/works/work-4.png",
+    src: `${import.meta.env.BASE_URL}works/work-4.png`,
   },
   {
     quote:
       "Moving out at 15 was one of the most life-changing things I’ve ever done. It taught me independence, adaptability, and how to build a sense of home wherever I am.",
     name: "Moving Out at 15",
     designation: "05 / INDEPENDENCE",
-    src: "/works/work-5.png",
+    src: `${import.meta.env.BASE_URL}works/work-5.png`,
   },
 ];
 

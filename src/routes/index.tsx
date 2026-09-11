@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import ayaPhoto from "@/assets/aya.webp.asset.json";
+
 import bookImg from "@/assets/book.webp.asset.json";
 import movieImg from "@/assets/movie.webp.asset.json";
 import drinkImg from "@/assets/drink.webp.asset.json";
@@ -11,13 +11,6 @@ import itemImg from "@/assets/item.webp.asset.json";
 import quoteImg from "@/assets/quote.webp.asset.json";
 import lessonImg from "@/assets/lesson.webp.asset.json";
 import feelingImg from "@/assets/feeling.webp.asset.json";
-import carSelfie from "@/assets/car-selfie.jpg.asset.json";
-import carHouston from "@/assets/car-houston.jpg.asset.json";
-import carBeach from "@/assets/car-beach.jpg.asset.json";
-import carBike from "@/assets/car-bike.jpg.asset.json";
-import carSki from "@/assets/car-ski.jpg.asset.json";
-import carFriends from "@/assets/car-friends.jpg.asset.json";
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -51,41 +44,41 @@ const FACTS = [
 
 const ROW_ONE = [
   {
-    src: carSelfie.url,
+    src:  `${import.meta.env.BASE_URL}images/car-selfie.jpg.jpg`,
     alt: "Aya selfie",
     description:
       "Random things I would like to acquire or learn: the skill of juggling, a skydiving license, and a master’s degree.",
   },
   {
-    src: carHouston.url,
+    src: `${import.meta.env.BASE_URL}images/car-houston.jpg.jpg`,
     alt: "Aya arriving in Houston",
     description: "I moved out at 15 to graduate high school in the United States!",
   },
   {
-    src: carBeach.url,
+    src: `${import.meta.env.BASE_URL}images/car-beach.jpg.jpg`,
     alt: "Aya at the beach at sunset",
     description:
-      "I love traveling! I have been to 17 countries and hope to see even more! This is at Da Nang Beach in Vietnam watching the sunrise at 5am while drinking banana milk.",
+      "I love traveling! I have been to 17 countries and hope to visit even more! This is at Da Nang Beach in Vietnam watching the sunrise at 5am while drinking banana milk.",
   },
 ];
 
 const ROW_TWO = [
   {
-    src: carBike.url,
+    src: `${import.meta.env.BASE_URL}images/car-bike.jpg.jpg`,
     alt: "Fixing the bike pedal",
     description: "I love exercising but I do not think it likes me back.",
   },
   {
-    src: carSki.url,
+    src: `${import.meta.env.BASE_URL}images/car-ski.jpg.jpg`,
     alt: "Skiing in the mountains",
     description:
       "I enjoy skiing a lot! We have made it a family tradition to go skiing in different places every winter. Last winter, it was Almaty, Kazakhstan.",
   },
   {
-    src: carFriends.url,
+    src: `${import.meta.env.BASE_URL}images/car-friends.jpg.jpg`,
     alt: "Night out with friends",
     description:
-      "I love going on late night walks while having meaningful and deep conversations with the people I love.",
+      "I love going on late night walks while having deep conversations with my friends.",
   },
 ];
 
@@ -499,7 +492,8 @@ function Index() {
                     <Fragmentish key={fact} fact={fact} />
                   ))}
                 </div>
-                <img src={ayaPhoto.url} alt="Aya Sarsengaliyeva" />
+                <imgsrc={`${import.meta.env.BASE_URL}images/aya.webp.jpg`}
+                alt="Aya Sarsengaliyeva" />
               </div>
             </div>
             <div className="scroll-hint">CLICK A PHOTO !</div>

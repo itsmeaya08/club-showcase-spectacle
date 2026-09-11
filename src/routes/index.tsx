@@ -14,6 +14,12 @@ import itemImg from "@/assets/item.webp.asset.json";
 import quoteImg from "@/assets/quote.webp.asset.json";
 import lessonImg from "@/assets/lesson.webp.asset.json";
 import feelingImg from "@/assets/feeling.webp.asset.json";
+import carSelfie from "@/assets/car-selfie.jpg.asset.json";
+import carHouston from "@/assets/car-houston.jpg.asset.json";
+import carBeach from "@/assets/car-beach.jpg.asset.json";
+import carBike from "@/assets/car-bike.jpg.asset.json";
+import carSki from "@/assets/car-ski.jpg.asset.json";
+import carFriends from "@/assets/car-friends.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,57 +53,15 @@ const FACTS = [
 ];
 
 const ROW_ONE = [
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e02ad24c5e36ddcd1957ad35677",
-    alt: "Dean Blunt - Black Metal 2",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e02af73f776b92d4614152fb141",
-    alt: "Jungle Jack - Jungle des Illusions Vol 2",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e02ecdb8f824367a53468100faf",
-    alt: "Yung Lean - Stardust",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e021624590458126fc8b8c64c2f",
-    alt: "Lana Del Rey - Ultraviolence",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e020dcf0f3680cff56fe5ff2288",
-    alt: "A$AP Rocky - Tailor Swif",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e02bc1028b7e9cd2b17c770a520",
-    alt: "Nino Paid, Konvy - Midnight Miami",
-  },
+  { src: carSelfie.url, alt: "Aya selfie" },
+  { src: carHouston.url, alt: "Aya arriving in Houston" },
+  { src: carBeach.url, alt: "Aya at the beach at sunset" },
 ];
 
 const ROW_TWO = [
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e020fc93fe41791c5aa51ae9645",
-    alt: "Travis Scott - Days Before Rodeo",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e02d3e668d0c74720c8c23978e3",
-    alt: "TORYONTHEBEAT - You're in My System",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e0234537499b159b0e6d18e5655",
-    alt: "People Make the World Go Round - You Can't Tell Me",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e020cd942c1a864afa4e92d04f2",
-    alt: "Kanye West - Ye",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e02a875c3ec944b4f164ab5c350",
-    alt: "Young Thug - Slime Season 3",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e026376f0d88bbbc8cd051e3401",
-    alt: "8ruki - SWAG",
-  },
+  { src: carBike.url, alt: "Fixing the bike pedal" },
+  { src: carSki.url, alt: "Skiing in the mountains" },
+  { src: carFriends.url, alt: "Night out with friends" },
 ];
 
 type Favorite = {

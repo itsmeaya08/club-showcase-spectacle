@@ -2,7 +2,7 @@ import { Suspense, useLayoutEffect, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment, Lightformer, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
-import avatarAsset from "@/assets/avatar.glb.asset.json";
+import avatarAsset from "@/assets/avatar3.glb.asset.json";
 
 function AvatarModel() {
   const { scene } = useGLTF(avatarAsset.url);
@@ -10,15 +10,30 @@ function AvatarModel() {
 
   useLayoutEffect(() => {
     if (!group.current) return;
-    const box = new THREE.Box3().setFromObject(scene);
+    // Reset first: the cached GLTF scene may already be scaled from a prior mount.
+    scene.scale.setScalar(1);
+    scene.position.set(0, 0, 0);
+    scene.updateMatrixWorld(true);
+    // Skinned meshes need pose-aware bounds; Box3.setFromObject reads bind pose.
+    const box = new THREE.Box3();
+    scene.traverse((o) => {
+      const mesh = o as THREE.Mesh;
+      if ((mesh as THREE.SkinnedMesh).isSkinnedMesh) {
+        const sm = mesh as THREE.SkinnedMesh;
+        sm.computeBoundingBox();
+        box.union(sm.boundingBox!.clone().applyMatrix4(sm.matrixWorld));
+      } else if (mesh.isMesh) {
+        box.expandByObject(mesh);
+      }
+    });
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
     const height = size.y || 1;
-    const scale = 3.2 / height;
+    const scale = 3.6 / height;
     scene.scale.setScalar(scale);
     scene.position.set(
       -center.x * scale,
-      -box.min.y * scale - 1.6,
+      -box.min.y * scale - 1.8,
       -center.z * scale,
     );
     scene.traverse((o) => {

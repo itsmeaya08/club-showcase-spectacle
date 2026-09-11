@@ -144,22 +144,22 @@ const FAVORITES: Favorite[] = [
     label: "Quote",
     src: quoteImg.url,
     title: "Quote",
-    subtitle: "Coming soon",
+    subtitle: "Wayne Gretzky",
     desc: "“You miss 100% of the shots you don’t take.” I’ve always related to this because I’d rather try, fail, and learn than wonder what would have happened if I had just gone for it.",
   },
   {
     label: "Life Lesson",
     src: lessonImg.url,
     title: "Life Lesson",
-    subtitle: "Coming soon",
-    desc: "Coming soon — send me the life lesson, and I’ll add it here.",
+    subtitle: "A reminder to keep perspective",
+    desc: "“Sometimes, it’s not that deep. Sometimes, it is.”",
   },
   {
     label: "Feeling",
     src: feelingImg.url,
     title: "Feeling",
-    subtitle: "Coming soon",
-    desc: "Waking up well-rested. Unfortunately, feeling energized and ready to conquer the day is usually the exact opposite of how I feel in the mornings. So when it happens, it feels like I’ve unlocked a secret level of life.",
+    subtitle: "A warm, quiet morning",
+    desc: "A soft room, sunlight through the curtains, and the feeling of being completely at ease.",
   },
 ];
 

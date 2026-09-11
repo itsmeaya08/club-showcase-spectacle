@@ -2,7 +2,7 @@ import { Suspense, useLayoutEffect, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment, Lightformer, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
-import avatarAsset from "@/assets/avatar.glb.asset.json";
+import avatarAsset from "@/assets/avatar3.glb.asset.json";
 
 function AvatarModel() {
   const { scene } = useGLTF(avatarAsset.url);

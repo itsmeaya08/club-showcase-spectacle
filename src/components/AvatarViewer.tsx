@@ -14,11 +14,11 @@ function AvatarModel() {
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
     const height = size.y || 1;
-    const scale = 3.2 / height;
+    const scale = 4.6 / height;
     scene.scale.setScalar(scale);
     scene.position.set(
       -center.x * scale,
-      -box.min.y * scale - 1.6,
+      -box.min.y * scale - 2.3,
       -center.z * scale,
     );
     scene.traverse((o) => {

@@ -50,15 +50,43 @@ const FACTS = [
 ];
 
 const ROW_ONE = [
-  { src: carSelfie.url, alt: "Aya selfie" },
-  { src: carHouston.url, alt: "Aya arriving in Houston" },
-  { src: carBeach.url, alt: "Aya at the beach at sunset" },
+  {
+    src: carSelfie.url,
+    alt: "Aya selfie",
+    description:
+      "Random things I would like to acquire/learn: The skill of juggling, skydiving license, a masters degree.",
+  },
+  {
+    src: carHouston.url,
+    alt: "Aya arriving in Houston",
+    description: "I moved out at 15 years old to graduate high school in the United States!",
+  },
+  {
+    src: carBeach.url,
+    alt: "Aya at the beach at sunset",
+    description:
+      "I love traveling! I have been to 17 countries and hope to see even more! This is at Da Nang Beach in Vietnam watching the sunrise at 5am while drinking banana milk.",
+  },
 ];
 
 const ROW_TWO = [
-  { src: carBike.url, alt: "Fixing the bike pedal" },
-  { src: carSki.url, alt: "Skiing in the mountains" },
-  { src: carFriends.url, alt: "Night out with friends" },
+  {
+    src: carBike.url,
+    alt: "Fixing the bike pedal",
+    description: "I love exercising but I do not think it likes me back.",
+  },
+  {
+    src: carSki.url,
+    alt: "Skiing in the mountains",
+    description:
+      "I enjoying skiing a lot! We have made it family tradition to go skiing every winter to different places! Last winter it was Almaty, Kazakhstan.",
+  },
+  {
+    src: carFriends.url,
+    alt: "Night out with friends",
+    description:
+      "I love going on late night walks while having meaningful and deep conversations with the people I love.",
+  },
 ];
 
 type Favorite = {
@@ -301,11 +329,11 @@ function Index() {
       .forEach((t) => (t.style.animationPlayState = state));
   };
 
-  const openPhoto = (img: HTMLImageElement) => {
+  const openPhoto = (img: HTMLImageElement, description: string) => {
     activeThumb.current = img;
     const rect = img.getBoundingClientRect();
     setTracksPlayState("paused");
-    setOverlayData({ src: img.src, alt: img.alt });
+    setOverlayData({ src: img.src, alt: description });
 
     requestAnimationFrame(() => {
       const el = overlayImgRef.current;
@@ -498,7 +526,7 @@ function Index() {
                     alt={a.alt}
                     onClick={(e) => {
                       e.stopPropagation();
-                      openPhoto(e.currentTarget);
+                      openPhoto(e.currentTarget, a.description);
                     }}
                   />
                 ))}
@@ -513,7 +541,7 @@ function Index() {
                     alt={a.alt}
                     onClick={(e) => {
                       e.stopPropagation();
-                      openPhoto(e.currentTarget);
+                      openPhoto(e.currentTarget, a.description);
                     }}
                   />
                 ))}

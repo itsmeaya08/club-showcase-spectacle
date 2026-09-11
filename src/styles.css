@@ -1283,9 +1283,12 @@
 @media (max-width:720px){
   #talk-page{ padding:4.5rem 1.25rem 1.5rem; }
   .talk-layout{ display:flex; flex-direction:column-reverse; align-items:stretch; gap:0; min-height:auto; }
-  .talk-portrait{ min-height:350px; margin:0 -0.5rem; }
-  .talk-portrait img{ max-height:400px; }
-  .talk-portrait-sticker{ right:1%; top:8%; }
+  .talk-portrait{ min-height:390px; margin:0 -0.5rem; overflow:hidden; }
+  .talk-portrait-backdrop{ transform:translateY(0); inset:8% 4% 0 12%; }
+  .talk-portrait::before{ transform:none; }
+  .talk-portrait img{ max-height:400px; width:min(92%, 390px); transform:translateY(-8%); }
+  .talk-portrait-sticker{ right:1%; top:8%; transform:rotate(7deg); }
+  .talk-portrait-caption{ transform:none; bottom:3%; }
   .talk-copy{ padding:1rem 0 2rem; }
   .talk-copy h1{ font-size:clamp(4.5rem, 19vw, 7rem); }
   .talk-copy h1 em{ font-size:clamp(5rem, 22vw, 8rem); }

@@ -44,27 +44,22 @@ function Conclusion() {
 
       {/* Phase 1: END OF PRESENTATION */}
       <div className={`conclusion-end ${phase === "end" ? "visible" : ""}`}>
-        <span className="end-label">END OF PRESENTATION</span>
+        <span className="end-label">THAT&apos;S THE STORY SO FAR.</span>
       </div>
 
       {/* Phase 2: pause / glitch transition */}
       <div className={`conclusion-pause ${phase === "pause" ? "visible" : ""}`} />
 
-      {/* Phase 3+4: BEGINNING OF THE STORY + body text */}
+      {/* Phase 3+4: closing message and name */}
       <div className={`conclusion-beginning ${phase === "beginning" ? "visible" : ""}`}>
-        <h1 className="beginning-title">BEGINNING OF THE STORY</h1>
+        <h1 className="beginning-title">THE REST IS UP TO YOU.</h1>
       </div>
 
       <div className={`conclusion-story ${phase === "story" ? "visible" : ""}`}>
         <div className="story-name-block">
+          <p className="story-tags">THE REST IS UP TO YOU.</p>
           <h2 className="story-name">AYA SARSENGALIYEVA</h2>
-          <p className="story-tags">Business &bull; Finance &bull; Creativity &bull; Curiosity</p>
         </div>
-
-        <Link to="/talk" className="lets-talk-btn">
-          <span className="word">LET&apos;S TALK</span>
-          <span className="arrow">&rarr;</span>
-        </Link>
       </div>
     </section>
   );

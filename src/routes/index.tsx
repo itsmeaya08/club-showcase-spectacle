@@ -566,7 +566,7 @@ function Index() {
 
             <div className="why-me-profile">
               <figure className="why-me-photo">
-                <img src="/why-me/aya-cafe.jpg" alt="Aya smiling in a café" />
+                <img src={`${import.meta.env.BASE_URL}why-me/aya-cafe.jpg`} alt="Aya smiling in a café" />
                 <figcaption>AYA / PEOPLE PERSON</figcaption>
               </figure>
               <div className="why-me-reasons" aria-label="Four reasons to work with Aya">

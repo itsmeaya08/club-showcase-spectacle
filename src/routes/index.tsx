@@ -43,10 +43,10 @@ export const Route = createFileRoute("/")({
 const BOOT_STEPS = [8, 22, 41, 63, 84, 100];
 
 const FACTS = [
-  "I am class of 2030.",
+  "I am in the Class of 2030.",
   "I am Kazakh.",
   "I was born in Bryan, TX on October 9, 2008.",
-  "My major is Business Administration, hoping to specialize in Finance.",
+  "I am majoring in Business Administration and hope to specialize in Finance.",
 ];
 
 const ROW_ONE = [
@@ -54,12 +54,12 @@ const ROW_ONE = [
     src: carSelfie.url,
     alt: "Aya selfie",
     description:
-      "Random things I would like to acquire/learn: The skill of juggling, skydiving license, a masters degree.",
+      "Random things I would like to acquire or learn: the skill of juggling, a skydiving license, and a master’s degree.",
   },
   {
     src: carHouston.url,
     alt: "Aya arriving in Houston",
-    description: "I moved out at 15 years old to graduate high school in the United States!",
+    description: "I moved out at 15 to graduate high school in the United States!",
   },
   {
     src: carBeach.url,
@@ -79,7 +79,7 @@ const ROW_TWO = [
     src: carSki.url,
     alt: "Skiing in the mountains",
     description:
-      "I enjoying skiing a lot! We have made it family tradition to go skiing every winter to different places! Last winter it was Almaty, Kazakhstan.",
+      "I enjoy skiing a lot! We have made it a family tradition to go skiing in different places every winter. Last winter, it was Almaty, Kazakhstan.",
   },
   {
     src: carFriends.url,
@@ -103,7 +103,7 @@ const FAVORITES: Favorite[] = [
     src: bookImg.url,
     title: "Book",
     subtitle: "1984 — George Orwell",
-    desc: "\u201c1984\u201d by George Orwell is one of the best books I've ever read. The language makes you feel like the main character — like I was the one walking the streets feeling watched. It taught me so much about trust, especially in media and politicians.",
+    desc: "1984 by George Orwell is one of the best books I’ve ever read. The writing makes you feel like you’re living alongside the main character—I felt like I was the one walking the streets, constantly feeling watched. It taught me a lot about trust, especially when it comes to media, information, and politicians.",
   },
   {
     label: "Movie",
@@ -117,49 +117,49 @@ const FAVORITES: Favorite[] = [
     src: drinkImg.url,
     title: "Drink",
     subtitle: "빙그레 바나나맛 우유",
-    desc: "Banana-flavored milk — a Korean classic I will never get tired of.",
+    desc: "Banana milk! I first tried it while I was in Seoul, Korea, and immediately understood the hype. Now I really want to figure out how to turn it into a latte.",
   },
   {
     label: "Food",
     src: foodImg.url,
     title: "Food",
     subtitle: "Feijoada with rice & egg",
-    desc: "Feijoada with rice and a fried egg.",
+    desc: "Brazilian rice and beans with a fried egg on top. My godmom is Brazilian and made this for me a lot when I lived with her, so it eventually became my ultimate comfort food. Add a cold Coke and you have perfection.",
   },
   {
     label: "City",
     src: cityImg.url,
     title: "City",
     subtitle: "London",
-    desc: "London.",
+    desc: "London. I visited in 10th grade, and something about the city just clicked for me. I remember thinking, “I could actually live here.” I still dream of moving there someday.",
   },
   {
     label: "Random Item",
     src: itemImg.url,
     title: "Random Item",
     subtitle: "Sony WH-1000XM4",
-    desc: "Sony WH-1000XM4 headphones.",
+    desc: "My Sony WH-1000XM4s. Some of the best sound quality you’ll ever hear, and I have these bad boys on 24/7. If you see me without them, something is probably wrong.",
   },
   {
     label: "Quote",
     src: quoteImg.url,
     title: "Quote",
     subtitle: "Coming soon",
-    desc: "Coming soon — send me the quote and I'll drop it in here.",
+    desc: "“You miss 100% of the shots you don’t take.” I’ve always related to this because I’d rather try, fail, and learn than wonder what would have happened if I had just gone for it.",
   },
   {
     label: "Life Lesson",
     src: lessonImg.url,
     title: "Life Lesson",
     subtitle: "Coming soon",
-    desc: "Coming soon — send me the lesson and I'll drop it in here.",
+    desc: "Coming soon — send me the life lesson, and I’ll add it here.",
   },
   {
     label: "Feeling",
     src: feelingImg.url,
     title: "Feeling",
     subtitle: "Coming soon",
-    desc: "Coming soon — send me this one and I'll drop it in here.",
+    desc: "Waking up well-rested. Unfortunately, feeling energized and ready to conquer the day is usually the exact opposite of how I feel in the mornings. So when it happens, it feels like I’ve unlocked a secret level of life.",
   },
 ];
 
@@ -501,7 +501,7 @@ function Index() {
             <div className="who-layout">
               <div className="who-inner">
                 <h2 className="who-title">WHO IS AYA?</h2>
-                <p className="who-thesis">A question I ask myself everyday.</p>
+                <p className="who-thesis">A question I ask myself every day.</p>
               </div>
 
               <div className="who-photo-wrap">

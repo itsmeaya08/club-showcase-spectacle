@@ -12,7 +12,7 @@ export const Route = createFileRoute("/talk")({
       { property: "og:title", content: "AYA.SYS — Let's Talk" },
       {
         property: "og:description",
-        content: "A short line to Aya Sarsengaliyeva.",
+        content: "A direct line to Aya Sarsengaliyeva.",
       },
       { property: "og:type", content: "website" },
     ],

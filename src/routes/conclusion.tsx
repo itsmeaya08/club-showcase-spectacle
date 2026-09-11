@@ -47,10 +47,7 @@ function Conclusion() {
         <span className="end-label">THAT&apos;S THE STORY SO FAR.</span>
       </div>
 
-      {/* Phase 2: pause / glitch transition */}
-      <div className={`conclusion-pause ${phase === "pause" ? "visible" : ""}`} />
-
-      {/* Phase 3+4: closing message and name */}
+      {/* Phase 2+3: closing message and name */}
       <div className={`conclusion-beginning ${phase === "beginning" ? "visible" : ""}`}>
         <h1 className="beginning-title">THE REST IS UP TO YOU.</h1>
       </div>
